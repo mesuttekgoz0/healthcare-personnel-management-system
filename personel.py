@@ -21,3 +21,4 @@ class Personel():
         return f"{self.__ad}  {self.__soyad}  {self.__departman}  {self.__maaş}"
     
     
+    
