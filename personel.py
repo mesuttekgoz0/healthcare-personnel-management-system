@@ -16,6 +16,8 @@ class Personel():
     
     def get_maaş(self):
         return self.__maaş
+    def set_maaş(self, yeni_maas):
+        self.__maaş=yeni_maas
     
     def __str__(self):
         return f"{self.__ad}  {self.__soyad}  {self.__departman}  {self.__maaş}"

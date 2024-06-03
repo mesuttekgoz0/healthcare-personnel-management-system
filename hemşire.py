@@ -17,7 +17,7 @@ class Hemsire(personel.Personel):
     def maas_arttir(self):
         kat=1.05
         yeni_maas=self.__maaş*kat
-        self.__maaş=yeni_maas
+        self.set_maaş(yeni_maas)
         return self.__maaş
     
     def __str__(self):
