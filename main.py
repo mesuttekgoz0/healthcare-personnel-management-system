@@ -3,6 +3,7 @@ from personel import Personel
 from doktor import Doktor
 from hemşire import Hemsire
 from hasta import Hasta
+import numpy as np
 
 personel=[
     Personel("p3244","Semih", "Öztürk", "Bakım", 6700),
@@ -12,7 +13,7 @@ personel=[
 doktor=[
     Doktor("d47","Fırat", "Selen", "Sağlık", 17000, "Nöroloji", 7, "Kartal Eğitim Ve Araştırma Hastanesi"),
     Doktor("d83","Yusuf", "Özdil", "Sağlık", 17500, "Jinekoloji", 3, "Yüksekova Devlet Hastanesi"),
-    Doktor("d66","Ayşe", "Keği", "Sağlık", 16000, "Üroloji", 8, "Bozyaka Eğitim Ve Araştırma Hastanesi")
+    Doktor("d66","Ayşe", "Keği", "Sağlık", 16000, "Nöroloji", 8, "Bozyaka Eğitim Ve Araştırma Hastanesi")
 
 ]
 hemsire=[
@@ -25,79 +26,99 @@ hasta=[
 ]
 tüm_hastane= doktor+ personel + hemsire+hasta
 
-df=pd.DataFrame(columns=["personel numarası","Ad","Soyad","Departman","Maaş","uzmanlık","deneyim yılı","çalışma saati",
-                         "sertifika","hastane","Doğum yılı","Hasta no","Hastalık","Tedavi"])
 
+ana_data=[]
 for kisi in tüm_hastane:
     if isinstance(kisi, Personel):
-        df=df.append({
-           "personel numarası":kisi.get_personel_no,
-           "Ad":kisi.get_ad,
-           "Soyad":kisi.get_soyad,
-           "Departman":kisi.get_departman,
-           "Maaş": kisi.get_maaş,
-           "uzmanlık":"",
-           "deneyim yılı":"",
-           "çalışma saati":"",
-           "sertifika":"",
-           "hastane":"",
-           "Doğum yılı":"",
-           "Hasta no":"",
-           "Hastalık":"",
-           "Tedavi":""
-        }, ignore_index=True)
-    elif isinstance(kisi,Doktor):
-        df=df.append({
-           "personel numarası":kisi.get_personel_no,
-           "Ad":kisi.get_ad,
-           "Soyad":kisi.get_soyad,
-           "Departman":kisi.get_departman,
-           "Maaş": kisi.get_maaş,
-           "uzmanlık":kisi.get_uzmanlik,
-           "deneyim yılı":kisi.get_deneyim_yili,
-           "çalışma saati":"",
-           "sertifika":"",
-           "hastane":kisi.get_hastane,
-           "Doğum yılı":"",
-           "Hasta no":"",
-           "Hastalık":"",
-           "Tedavi":""
-        }, ignore_index=True)
-    elif isinstance(kisi,Hemsire):
-        df=df.append({
-           "personel numarası":kisi.get_personel_no,
-           "Ad":kisi.get_ad,
-           "Soyad":kisi.get_soyad,
-           "Departman":kisi.get_departman,
-           "Maaş": kisi.get_maaş,
-           "uzmanlık":"",
-           "deneyim yılı":"",
-           "çalışma saati":kisi.get_calisma_saati,
-           "sertifika":kisi.get_calisma_saati,
-           "hastane":kisi.get_hastane,
-           "Doğum yılı":"",
-           "Hasta no":"",
-           "Hastalık":"",
-           "Tedavi":""
-        }, ignore_index=True)
+        if isinstance(kisi,Doktor):
+            data={
+           "ID":kisi.get_personel_no(),
+           "Ad":kisi.get_ad(),
+           "Soyad":kisi.get_soyad(),
+           "Departman":kisi.get_departman(),
+           "Maaş": kisi.get_maaş(),
+           "uzmanlık":kisi.get_uzmanlik(),
+           "deneyim yılı":kisi.get_deneyim_yili(),
+           "çalışma saati":np.nan,
+           "sertifika":np.nan,
+           "hastane":kisi.get_hastane(),
+           "Doğum yılı":np.nan,
+           "Hasta no":np.nan,
+           "Hastalık":np.nan,
+           "Tedavi":np.nan
+        }
+        elif isinstance(kisi,Hemsire):
+             data={
+           "ID":kisi.get_personel_no(),
+           "Ad":kisi.get_ad(),
+           "Soyad":kisi.get_soyad(),
+           "Departman":kisi.get_departman(),
+           "Maaş": kisi.get_maaş(),
+           "uzmanlık":np.nan,
+           "deneyim yılı":np.nan,
+           "çalışma saati":kisi.get_calisma_saati(),
+           "sertifika":kisi.get_calisma_saati(),
+           "hastane":kisi.get_hastane(),
+           "Doğum yılı":np.nan,
+           "Hasta no":np.nan,
+           "Hastalık":np.nan,
+           "Tedavi":np.nan
+        }
+        else:
+            data={
+               "ID":kisi.get_personel_no(),
+               "Ad":kisi.get_ad(),
+               "Soyad":kisi.get_soyad(),
+               "Departman":kisi.get_departman(),
+               "Maaş": kisi.get_maaş(),
+               "uzmanlık":np.nan,
+               "deneyim yılı":np.nan,
+               "çalışma saati":np.nan,
+               "sertifika":np.nan,
+               "hastane":np.nan,
+               "Doğum yılı":np.nan,
+               "Hasta no":np.nan,
+               "Hastalık":np.nan,
+               "Tedavi":np.nan
+            }
+   
     elif isinstance(kisi,Hasta):
-        df=df.append({
-           "personel numarası":"",
-           "Ad":kisi.get_ad,
-           "Soyad":kisi.get_soyad,
-           "Departman":"",
-           "Maaş": "",
-           "uzmanlık":"",
-           "deneyim yılı":"",
-           "çalışma saati":"",
-           "sertifika":"",
-           "hastane":"",
-           "Doğum yılı":kisi.get_dogum_yili,
-           "Hasta no":kisi.get_hasta_no,
-           "Hastalık":kisi.get_hastalik,
-           "Tedavi":kisi.get_tedavi
-        }, ignore_index=True)
+        data={
+           "ID":"",
+           "Ad":kisi.get_ad(),
+           "Soyad":kisi.get_soyad(),
+           "Departman":np.nan,
+           "Maaş": np.nan,
+           "uzmanlık":np.nan,
+           "deneyim yılı":np.nan,
+           "çalışma saati":np.nan,
+           "sertifika":np.nan,
+           "hastane":np.nan,
+           "Doğum yılı":kisi.get_dogum_yili(),
+           "Hasta no":kisi.get_hasta_no(),
+           "Hastalık":kisi.get_hastalik(),
+           "Tedavi":kisi.get_tedavi()
+        }
+    ana_data.append(data)
+
+df=pd.DataFrame(ana_data)
 print(df)
+#boşlukları 0 ile doldurma
+a=df.fillna(0)
+print(a)
+
+#uzmanlıklarına göre sayılarını bulma
+print("\n uzmanlıklarına döre doktor sayıları")
+b=df["uzmanlık"].value_counts().describe
+print(b)
+
+#deneyim yılına göre doktor sayısı bulma
+sayac=0
+for i in df["deneyim yılı"]:
+    if i>5:
+        sayac=sayac+1
+print(f"deneyimi 5 yıldan fazla olan doktor sayısı {sayac}")
+
 
 
 
