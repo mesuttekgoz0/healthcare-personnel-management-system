@@ -24,7 +24,7 @@ class Personel():
         self.__maaş=yeni_maas
     
     def __str__(self):
-        return f"{self.__personel_noS} {self.__ad}  {self.__soyad}  {self.__departman}  {self.__maaş}"
+        return f"{self.__personel_no} {self.__ad}  {self.__soyad}  {self.__departman}  {self.__maaş}"
     
     
     

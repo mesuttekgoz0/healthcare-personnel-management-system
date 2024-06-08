@@ -31,10 +31,8 @@ for person in hastane_çalışanları:
         "İsim":[person.get_ad ],
         "Soyisim":[person.get_soyad ],
         "Departman":[person.get_departman],
-        "Maaş":[person.get_maaş]
-    
-
-}
+        "Maaş":[person.get_maaş]   
+    }
 df=pd.DataFrame(data)
 print(df)
 
