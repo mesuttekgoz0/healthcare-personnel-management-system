@@ -1,7 +1,7 @@
 import personel
 class Doktor(personel.Personel):
-    def __init__(self, ad, soyad, departman, maaş, uzmanlik, deneyim_yili, hastane):
-        super().__init__(ad, soyad, departman, maaş)
+    def __init__(self,personel_no, ad, soyad, departman, maaş, uzmanlik, deneyim_yili, hastane):
+        super().__init__(personel_no,ad, soyad, departman, maaş)
         self.__uzmanlik=uzmanlik
         self.__deneyim_yili=deneyim_yili
         self.__hastane=hastane

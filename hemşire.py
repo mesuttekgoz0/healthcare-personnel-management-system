@@ -1,7 +1,7 @@
 import personel
 class Hemsire(personel.Personel):
-    def __init__(self, ad, soyad, departman, maaş, caalisma_saati, sertifika, hastane):
-        super().__init__(ad, soyad, departman, maaş)
+    def __init__(self, personel_no,ad, soyad, departman, maaş, caalisma_saati, sertifika, hastane):
+        super().__init__(personel_no,ad, soyad, departman, maaş)
         self.__calisma_saati=caalisma_saati
         self.__sertifika=sertifika
         self.__hastane=hastane
