@@ -104,12 +104,12 @@ for kisi in tüm_hastane:
 df=pd.DataFrame(ana_data)
 print(df)
 #boşlukları 0 ile doldurma
-a=df.fillna(0)
-print(a)
+yeni_df=df.fillna(0)
+
 
 #uzmanlıklarına göre sayılarını bulma
 print("\n uzmanlıklarına döre doktor sayıları")
-b=df["uzmanlık"].value_counts().describe
+b=df["uzmanlık"].value_counts()
 print(b)
 
 #deneyim yılına göre doktor sayısı bulma
@@ -118,6 +118,19 @@ for i in df["deneyim yılı"]:
     if i>5:
         sayac=sayac+1
 print(f"deneyimi 5 yıldan fazla olan doktor sayısı {sayac}")
+
+#maaşı 7000 den fazla olan çalışan sayısı
+sayac2=0
+for maaş in df["Maaş"]:
+    if maaş>=7000:
+        sayac2=sayac2+1
+
+print("maaşı 7 binden fazla olan personel sayısı: {}".format(sayac2))
+yediden_fazla_maaşlılar=yeni_df.loc[df["Maaş"]>7000]
+yediden_fazla_maaşlılar.to_csv("dosya.csv")
+
+
+print(yediden_fazla_maaşlılar)
 
 
 
