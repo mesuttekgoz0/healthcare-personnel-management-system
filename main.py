@@ -22,7 +22,9 @@ hemsire=[
     Hemsire("hm2382","Selma", "Kutlu", "Sağlık", 8000, 12, "Yoğun Bakım", "Van Yüzüncü Yıl Hastanesi")
 ]
 hasta=[
-    Hasta(1232,"Sait", "Takoz",1987,"Grip","Normal")
+    Hasta(1232,"Sait", "Takoz",1987,"Grip","İlaç Tedavisi"),
+    Hasta(1232,"Elif", "Irmak",1991,"Bronşit","İlaç Tedavisi"),
+    Hasta(1232,"Mithat", "Paşa",1999,"3. dereceden yanık","Özel tedavi")
 ]
 tüm_hastane= doktor+ personel + hemsire+hasta
 
@@ -105,6 +107,7 @@ df=pd.DataFrame(ana_data)
 print(df)
 #boşlukları 0 ile doldurma
 yeni_df=df.fillna(0)
+print(yeni_df)
 
 
 #uzmanlıklarına göre sayılarını bulma
@@ -124,19 +127,16 @@ sayac2=0
 for maaş in df["Maaş"]:
     if maaş>=7000:
         sayac2=sayac2+1
-
 print("maaşı 7 binden fazla olan personel sayısı: {}".format(sayac2))
 yediden_fazla_maaşlılar=yeni_df.loc[df["Maaş"]>7000]
-yediden_fazla_maaşlılar.to_csv("dosya.csv")
-
-
 print(yediden_fazla_maaşlılar)
 
+#1990 dan sonra doğan hastaların bulunması ve yazdırılması
+print("1990 dan sonra doğan hastalar:")
+doksan_sonrası_hastalar=yeni_df.loc[yeni_df["Doğum yılı"]>1990]
+print(doksan_sonrası_hastalar)
 
+#isime göre dataframe i alfabetik sıralama
+alfabetik_sıralanmış_liste=yeni_df.sort_values("Ad")
+print(alfabetik_sıralanmış_liste)
 
-
-
-
-
-
-        
