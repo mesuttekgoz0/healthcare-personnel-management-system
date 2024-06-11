@@ -12,15 +12,15 @@ personel=[
 
 ]
 doktor=[
-    Doktor("d47","Fırat", "Selen", "Sağlık", 17000, "Nöroloji", 7, "Kartal Eğitim Ve Araştırma Hastanesi"),
-    Doktor("d83","Yusuf", "Özdil", "Sağlık", 17500, "Jinekoloji", 3, "Yüksekova Devlet Hastanesi"),
-    Doktor("d66","Ayşe", "Keği", "Sağlık", 16000, "Nöroloji", 8, "Bozyaka Eğitim Ve Araştırma Hastanesi")
+    Doktor("d47","Fırat", "Selen", "Sağlık", 17000, "Nöroloji", 7, "Kartal Eğitim Ve Araştırma"),
+    Doktor("d83","Yusuf", "Özdil", "Sağlık", 17500, "Jinekoloji", 3, "Yüksekova Devlet"),
+    Doktor("d66","Ayşe", "Keği", "Sağlık", 16000, "Nöroloji", 8, "Bozyaka Eğitim Ve Araştırma")
 
 ]
 hemsire=[
-    Hemsire("hm12","Derya", "Taş", "Sağlık", 9000, 12, "Pediatri", "Van Yüzüncü Yıl Hastanesi"),
-    Hemsire("hm22","Mustafa", "İşleyen", "Sağlık", 8500, 12, "Onkoloji", "Kartal Eğitim Ve Araştırma Hastanesi"),
-    Hemsire("hm2382","Selma", "Kutlu", "Sağlık", 8000, 12, "Yoğun Bakım", "Van Yüzüncü Yıl Hastanesi")
+    Hemsire("hm12","Derya", "Taş", "Sağlık", 9000, 12, "Pediatri", "Van Yüzüncü Yıl"),
+    Hemsire("hm22","Mustafa", "İşleyen", "Sağlık", 8500, 12, "Onkoloji", "Kartal Eğitim Ve Araştırma"),
+    Hemsire("hm2382","Selma", "Kutlu", "Sağlık", 8000, 12, "Yoğun Bakım", "Van Yüzüncü Yıl")
 ]
 hasta=[
     Hasta(1232,"Sait", "Takoz",1987,"Grip","İlaç Tedavisi"),
