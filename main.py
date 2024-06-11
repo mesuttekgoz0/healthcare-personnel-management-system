@@ -4,6 +4,8 @@ from doktor import Doktor
 from hemşire import Hemsire
 from hasta import Hasta
 import numpy as np
+pd.set_option("display.max_columns",None)
+pd.set_option("display.expand_frame_repr", False)
 
 personel=[
     Personel("p3244","Semih", "Öztürk", "Bakım", 6700),
@@ -111,22 +113,31 @@ print(yeni_df)
 
 
 #uzmanlıklarına göre sayılarını bulma
+print("_"*190)
 print("\n uzmanlıklarına döre doktor sayıları")
 b=df["uzmanlık"].value_counts()
 print(b)
 
+
+
 #deneyim yılına göre doktor sayısı bulma
 sayac=0
+a=0
 for i in df["deneyim yılı"]:
     if i>5:
-        sayac=sayac+1
+        sayac=sayac+1   
+print("_"*190)
 print(f"deneyimi 5 yıldan fazla olan doktor sayısı {sayac}")
+beş_yıldan_fazla_deneyimli=yeni_df.loc[yeni_df["deneyim yılı"]>5]
+print(beş_yıldan_fazla_deneyimli)
+
 
 #maaşı 7000 den fazla olan çalışan sayısı
 sayac2=0
 for maaş in df["Maaş"]:
     if maaş>=7000:
         sayac2=sayac2+1
+print("_"*190)
 print("maaşı 7 binden fazla olan personel sayısı: {}".format(sayac2))
 yediden_fazla_maaşlılar=yeni_df.loc[df["Maaş"]>7000]
 print(yediden_fazla_maaşlılar)
@@ -134,9 +145,16 @@ print(yediden_fazla_maaşlılar)
 #1990 dan sonra doğan hastaların bulunması ve yazdırılması
 print("1990 dan sonra doğan hastalar:")
 doksan_sonrası_hastalar=yeni_df.loc[yeni_df["Doğum yılı"]>1990]
+print("_"*190)
 print(doksan_sonrası_hastalar)
 
 #isime göre dataframe i alfabetik sıralama
 alfabetik_sıralanmış_liste=yeni_df.sort_values("Ad")
-print(alfabetik_sıralanmış_liste)
+print("_"*190)
+print(alfabetik_sıralanmış_liste.sort_index())
+
+#sadece belirli sütunları kullanarak yeni dataframe oluşturma
+yepyeni_df=yeni_df[["Ad","Soyad","Departman","Maaş","uzmanlık","deneyim yılı","Hastalık","Tedavi"]]
+print("_"*190)
+print(yepyeni_df)
 
