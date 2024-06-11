@@ -4,8 +4,7 @@ from doktor import Doktor
 from hemşire import Hemsire
 from hasta import Hasta
 import numpy as np
-pd.set_option("display.max_columns",None)
-pd.set_option("display.expand_frame_repr", False)
+
 
 personel=[
     Personel("p3244","Semih", "Öztürk", "Bakım", 6700),
