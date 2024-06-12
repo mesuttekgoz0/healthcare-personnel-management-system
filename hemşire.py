@@ -7,12 +7,18 @@ class Hemsire(personel.Personel):
         self.__hastane=hastane
     def get_calisma_saati(self):
         return self.__calisma_saati
+    def set_calışma_saati(self,yeni):
+        self.__calisma_saati=yeni
     
     def get_sertifika(self):
         return self.__sertifika
+    def set_sertifika(self,yeni):
+        self.__sertifika=yeni
     
     def get_hastane(self):
         return self.__hastane
+    def set_hastane(self, yeni_hastane):
+        self.__hastane=yeni_hastane
     
     def maas_arttir(self):
         kat=1.05
