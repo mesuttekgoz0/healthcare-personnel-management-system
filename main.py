@@ -121,7 +121,7 @@ print(b)
 
 #deneyim yılına göre doktor sayısı bulma
 sayac=0
-a=0
+
 for i in df["deneyim yılı"]:
     if i>5:
         sayac=sayac+1   
@@ -142,15 +142,15 @@ yediden_fazla_maaşlılar=yeni_df.loc[df["Maaş"]>7000]
 print(yediden_fazla_maaşlılar)
 
 #1990 dan sonra doğan hastaların bulunması ve yazdırılması
-print("1990 dan sonra doğan hastalar:")
 doksan_sonrası_hastalar=yeni_df.loc[yeni_df["Doğum yılı"]>1990]
 print("_"*190)
+print("1990 dan sonra doğan hastalar:")
 print(doksan_sonrası_hastalar)
 
 #isime göre dataframe i alfabetik sıralama
 alfabetik_sıralanmış_liste=yeni_df.sort_values("Ad")
 print("_"*190)
-print(alfabetik_sıralanmış_liste.sort_index())
+print(alfabetik_sıralanmış_liste)
 
 #sadece belirli sütunları kullanarak yeni dataframe oluşturma
 yepyeni_df=yeni_df[["Ad","Soyad","Departman","Maaş","uzmanlık","deneyim yılı","Hastalık","Tedavi"]]

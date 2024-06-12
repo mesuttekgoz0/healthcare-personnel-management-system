@@ -25,6 +25,14 @@ class Hasta():
     def get_tedavi(self):
         return self.__tedavi
     
+    def tedavi_suresi_hesapla(self):
+        normal_süre=2
+        if self.__tedavi=="İlaç Tedavisi":
+            return normal_süre
+        elif self.__tedavi=="Özel tedavi":
+            return normal_süre+4
+    
+    
     def __str__(self):
         return f"{self.__hasta_no} {self.__ad} {self.__soyad} {self.__dogum_yili} {self.__hastalik} {self.__tedavi}  "
     
